@@ -11,6 +11,11 @@
 		98B52B232930A4BE0013FEEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B52B222930A4BE0013FEEA /* ContentView.swift */; };
 		98B52B252930A4C20013FEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98B52B242930A4C20013FEEA /* Assets.xcassets */; };
 		98B52B282930A4C20013FEEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98B52B272930A4C20013FEEA /* Preview Assets.xcassets */; };
+		98B52B2F2930A5710013FEEA /* HomepageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B52B2E2930A5710013FEEA /* HomepageView.swift */; };
+		98B52B332930A7B40013FEEA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B52B322930A7B40013FEEA /* GridView.swift */; };
+		98D708F12930ACEB004D5175 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D708F02930ACEA004D5175 /* ListView.swift */; };
+		98D708F42930AF03004D5175 /* NewRantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D708F32930AF03004D5175 /* NewRantView.swift */; };
+		98D708F72930B3AD004D5175 /* RantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D708F62930B3AD004D5175 /* RantView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +24,11 @@
 		98B52B222930A4BE0013FEEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		98B52B242930A4C20013FEEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98B52B272930A4C20013FEEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		98B52B2E2930A5710013FEEA /* HomepageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageView.swift; sourceTree = "<group>"; };
+		98B52B322930A7B40013FEEA /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		98D708F02930ACEA004D5175 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		98D708F32930AF03004D5175 /* NewRantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRantView.swift; sourceTree = "<group>"; };
+		98D708F62930B3AD004D5175 /* RantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +61,9 @@
 		98B52B1F2930A4BE0013FEEA /* Rant Away */ = {
 			isa = PBXGroup;
 			children = (
+				98D708F52930B392004D5175 /* Rant */,
+				98D708F22930AEE6004D5175 /* New Rant */,
+				98B52B312930A78A0013FEEA /* Homepage */,
 				98B52B202930A4BE0013FEEA /* Rant_AwayApp.swift */,
 				98B52B222930A4BE0013FEEA /* ContentView.swift */,
 				98B52B242930A4C20013FEEA /* Assets.xcassets */,
@@ -65,6 +78,32 @@
 				98B52B272930A4C20013FEEA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		98B52B312930A78A0013FEEA /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				98B52B2E2930A5710013FEEA /* HomepageView.swift */,
+				98D708F02930ACEA004D5175 /* ListView.swift */,
+				98B52B322930A7B40013FEEA /* GridView.swift */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		98D708F22930AEE6004D5175 /* New Rant */ = {
+			isa = PBXGroup;
+			children = (
+				98D708F32930AF03004D5175 /* NewRantView.swift */,
+			);
+			path = "New Rant";
+			sourceTree = "<group>";
+		};
+		98D708F52930B392004D5175 /* Rant */ = {
+			isa = PBXGroup;
+			children = (
+				98D708F62930B3AD004D5175 /* RantView.swift */,
+			);
+			path = Rant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +176,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B52B2F2930A5710013FEEA /* HomepageView.swift in Sources */,
 				98B52B232930A4BE0013FEEA /* ContentView.swift in Sources */,
+				98D708F72930B3AD004D5175 /* RantView.swift in Sources */,
+				98D708F42930AF03004D5175 /* NewRantView.swift in Sources */,
+				98D708F12930ACEB004D5175 /* ListView.swift in Sources */,
+				98B52B332930A7B40013FEEA /* GridView.swift in Sources */,
 				98B52B212930A4BE0013FEEA /* Rant_AwayApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
