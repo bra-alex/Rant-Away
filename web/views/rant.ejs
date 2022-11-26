@@ -1,0 +1,18 @@
+<%- include('includes/head.ejs') %>
+
+    <%- include('includes/nav.ejs') %>
+
+        <main>
+            <div class="div">
+                <article>
+                    <header class="card__header centered">
+                        <h1 class="title">
+                            <%= rant.title %>
+                        </h1>
+                    </header>
+                    <p><%= rant.rant %></p>
+                </article>
+            </div>
+        </main>
+
+<%- include('includes/end.ejs') %>

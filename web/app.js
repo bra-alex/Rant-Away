@@ -14,8 +14,8 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(rootDIR, 'public')))
 
-app.use(rantRouter)
 app.use(addRantRouter)
+app.use(rantRouter)
 
 app.use(errorRouter)
 

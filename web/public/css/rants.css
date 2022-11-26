@@ -1,5 +1,9 @@
 .product-form {
     width: 20rem;
+}
+
+.div,
+.product-form{
     max-width: 90%;
     margin: auto;
     display: block;
