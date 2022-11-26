@@ -43,7 +43,7 @@ struct HomepageView: View {
                     grid.toggle()
                 }
             } label: {
-                Image(systemName: "square.grid.2x2")
+                Image(systemName: grid ? "list.bullet" : "square.grid.2x2")
             }
         }
     }
