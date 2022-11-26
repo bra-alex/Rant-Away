@@ -9,6 +9,10 @@
     display: block;
 }
 
+.div p{
+    white-space: pre-wrap;
+}
+
 .title {
     font-size: 1.2rem;
 }

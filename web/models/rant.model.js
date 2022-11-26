@@ -1,19 +1,4 @@
-const fs = require('fs')
-const path = require('path')
-
-const rootDIR = require('../utils/path')
-
-const filePath = path.join(rootDIR, 'data', 'rants.json') 
-
-function getData(cb){
-    fs.readFile(filePath, (err, fileContent) => {
-        if(err){
-            return cb([])
-        }
-
-        return cb(JSON.parse(fileContent))
-    })
-}
+const rantModel = require('./rant.mongo')
 
 module.exports = class Rant {
     constructor(title, rant) {
@@ -23,25 +8,27 @@ module.exports = class Rant {
 
     save(){
         this.id = Math.floor(Math.random() * 1000000).toString()
-        getData(rants => {
-            rants.push(this)
 
-            fs.writeFile(filePath, JSON.stringify(rants), (err) => {
-                if (err) {
-                    return err
-                }
-            })
+        rantModel.create(this, err => {
+            if(err){
+                return err
+            }
+
+            console.log('saved')
         })
     }
 
-    static fetchRants(cb){
-        getData(cb)
+    static async fetchRants(cb){
+        return await rantModel.find({}, {
+            _id: 0,
+            __v: 0
+        })
     }
 
-    static findByID(id, cb){
-        getData(rants => {
-            const rant = rants.find(r => r.id === id)
-            cb(rant)
+    static async findByID(id){
+        return await rantModel.findOne({id: id}, {
+            _id: 0,
+            __v: 0
         })
     }
 }

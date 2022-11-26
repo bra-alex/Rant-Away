@@ -5,6 +5,7 @@ const rantController = require('../controllers/rant.controller')
 const rantRouter = express.Router()
 
 rantRouter.get('/', rantController.getRants)
-rantRouter.get('/:rantId', rantController.getRant)
+rantRouter.get('/rants', rantController.getRants)
+rantRouter.get('/rants/:rantId', rantController.getRant)
 
 module.exports = rantRouter

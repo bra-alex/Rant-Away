@@ -10,7 +10,8 @@
                             <%= rant.title %>
                         </h1>
                     </header>
-                    <p><%= rant.rant %></p>
+                    <!-- <textarea readonly="readonly", rows="30"><%= rant.rant.replace('\n', '<br>') %></textarea> -->
+                    <p><%= `${rant.rant}` %></p>
                 </article>
             </div>
         </main>

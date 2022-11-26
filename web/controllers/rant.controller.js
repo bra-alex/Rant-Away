@@ -1,23 +1,30 @@
 const Rant = require('../models/rant.model')
+const errorController = require('./404.controller')
 
-function getRants(req, res){
-    Rant.fetchRants(rants => {
-        res.render('index', {
-            pageTitle: 'Rants',
-            rants: rants
-        })
+async function getRants(req, res) {
+    const rants = await Rant.fetchRants()
+
+    res.render('index', {
+        pageTitle: 'Rants',
+        rants: rants
     })
 }
 
-function getRant(req, res){
+async function getRant(req, res) {
     const rantID = req.params.rantId
 
-    Rant.findByID(rantID, rant => {
-        res.render('rant', {
-            pageTitle: "sure",
-            rant: rant,
-        })
+    const rant = await Rant.findByID(rantID)
+
+    if(!rant){
+        errorController(req, res)
+    }
+
+    res.render('rant', {
+        pageTitle: "sure",
+        rant: rant,
     })
+
+    console.log(`${rant.rant}`)
 }
 
 module.exports = {
