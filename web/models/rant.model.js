@@ -13,8 +13,6 @@ module.exports = class Rant {
             if(err){
                 return err
             }
-
-            console.log('saved')
         })
     }
 

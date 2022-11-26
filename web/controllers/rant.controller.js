@@ -23,8 +23,6 @@ async function getRant(req, res) {
         pageTitle: "sure",
         rant: rant,
     })
-
-    console.log(`${rant.rant}`)
 }
 
 module.exports = {
