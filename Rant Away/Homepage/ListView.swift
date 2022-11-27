@@ -23,9 +23,9 @@ struct ListView: View {
                             
                             Spacer()
                             
-//                            Text(Date().formatted())
-//                                .font(.subheadline)
-//                                .padding(.trailing)
+                            Text(rant.formattedDate)
+                                .font(.subheadline)
+                                .padding(.trailing)
                         }
                         
                         Text(rant.rant)

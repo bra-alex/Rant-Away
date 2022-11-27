@@ -8,6 +8,7 @@ module.exports = class Rant {
 
     async save(){
         this.id = Math.floor(Math.random() * 1000000).toString()
+        this.date = Date.now()
 
         try {
             await rantModel.findOneAndUpdate(

@@ -19,11 +19,16 @@ class RantsViewModel: ObservableObject{
             let task = session.dataTask(with: url) { data, response, error in
                 if error == nil{
                     let decoder = JSONDecoder()
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                    decoder.dateDecodingStrategy = .formatted(formatter)
+                    
                     if let safeData = data{
                         do{
                             let results = try decoder.decode([RantsModel].self, from: safeData)
                             DispatchQueue.main.async {
                                 self.rants = results
+                                self.rants.sort{$0.date > $1.date}
                             }
                         } catch {
                             print(error)
@@ -49,10 +54,12 @@ class RantsViewModel: ObservableObject{
         let task = URLSession.shared.dataTask(with: request) { data, response, err in
             guard let data = data, err == nil else { return }
             
+            let decoder = JSONDecoder()
+            
             do{
-                let response = try JSONDecoder().decode(RantsModel.self, from: data)
+                let _ = try decoder.decode(RantsModel.self, from: data)
                 DispatchQueue.main.async {
-                    self.rants.append(response)
+                    self.fetchData()
                 }
             }catch{
                 print(error)
@@ -60,7 +67,5 @@ class RantsViewModel: ObservableObject{
         }
         
         task.resume()
-        
-        fetchData()
     }
 }

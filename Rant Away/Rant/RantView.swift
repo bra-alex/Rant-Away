@@ -12,17 +12,19 @@ struct RantView: View {
     
     var body: some View {
         ScrollView {
-            Text(rant.rant)
-            .padding()
-            .multilineTextAlignment(.leading)
-            
-            HStack{
-                Spacer()
+            VStack(alignment: .leading){
+                Text(rant.rant)
+                .padding()
+                .multilineTextAlignment(.leading)
                 
-                Text(Date().formatted())
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-                    .padding(.trailing)
+                HStack{
+                    Spacer()
+                    
+                    Text(rant.formattedDate)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+            }
             }
         }
         .navigationTitle(rant.title)

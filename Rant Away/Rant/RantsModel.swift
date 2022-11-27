@@ -11,4 +11,9 @@ struct RantsModel: Codable, Identifiable{
     let id: String
     let title: String
     let rant: String
+    let date: Date
+    
+    var formattedDate: String{
+        date.formatted(date: .abbreviated, time: .omitted)
+    }
 }

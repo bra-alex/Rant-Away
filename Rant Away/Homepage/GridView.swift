@@ -29,7 +29,7 @@ struct GridView: View {
                                 .font(.title3.bold())
                                 .multilineTextAlignment(.leading)
                             
-                            Text(Date().formatted())
+                            Text(rant.formattedDate)
                                 .font(.subheadline)
                         }
                         .frame(width: proxy.size.width * 0.85)

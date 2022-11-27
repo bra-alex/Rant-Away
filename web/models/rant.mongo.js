@@ -13,10 +13,10 @@ const rantSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // id: {
-    //     type: String,
-    //     required: true
-    // }
+    date: {
+        type: Date,
+        required: true
+    }
 })
 
 const rantModel = mongoose.model('RantsDB', rantSchema)
