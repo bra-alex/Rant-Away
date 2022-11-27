@@ -6,13 +6,13 @@ function getAddRant(req, res){
     })
 }
 
-function postAddRant(req, res){
+async function postAddRant(req, res){
     const title = req.body.title
     const body = req.body.rant
 
     const rant = new Rant(title, body)
 
-    rant.save()
+    await rant.save()
 
     res.redirect('/')
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		981190452933729D00E8DDD4 /* RantsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981190442933729D00E8DDD4 /* RantsModel.swift */; };
+		981190472933735100E8DDD4 /* RantsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981190462933735100E8DDD4 /* RantsViewModel.swift */; };
 		98B52B212930A4BE0013FEEA /* Rant_AwayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B52B202930A4BE0013FEEA /* Rant_AwayApp.swift */; };
 		98B52B232930A4BE0013FEEA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B52B222930A4BE0013FEEA /* ContentView.swift */; };
 		98B52B252930A4C20013FEEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98B52B242930A4C20013FEEA /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		981190442933729D00E8DDD4 /* RantsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RantsModel.swift; sourceTree = "<group>"; };
+		981190462933735100E8DDD4 /* RantsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RantsViewModel.swift; sourceTree = "<group>"; };
 		98B52B1D2930A4BE0013FEEA /* Rant Away.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rant Away.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98B52B202930A4BE0013FEEA /* Rant_AwayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rant_AwayApp.swift; sourceTree = "<group>"; };
 		98B52B222930A4BE0013FEEA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				98D708F62930B3AD004D5175 /* RantView.swift */,
+				981190442933729D00E8DDD4 /* RantsModel.swift */,
+				981190462933735100E8DDD4 /* RantsViewModel.swift */,
 			);
 			path = Rant;
 			sourceTree = "<group>";
@@ -178,9 +184,11 @@
 			files = (
 				98B52B2F2930A5710013FEEA /* HomepageView.swift in Sources */,
 				98B52B232930A4BE0013FEEA /* ContentView.swift in Sources */,
+				981190452933729D00E8DDD4 /* RantsModel.swift in Sources */,
 				98D708F72930B3AD004D5175 /* RantView.swift in Sources */,
 				98D708F42930AF03004D5175 /* NewRantView.swift in Sources */,
 				98D708F12930ACEB004D5175 /* ListView.swift in Sources */,
+				981190472933735100E8DDD4 /* RantsViewModel.swift in Sources */,
 				98B52B332930A7B40013FEEA /* GridView.swift in Sources */,
 				98B52B212930A4BE0013FEEA /* Rant_AwayApp.swift in Sources */,
 			);

@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct HomepageView: View {
+    @ObservedObject var rantsVM: RantsViewModel
+    
     @State private var grid = false
     @State private var addRant = false
     var body: some View {
         Group{
             if grid {
-                GridView()
+                GridView(rantsVM: rantsVM)
             } else {
-                ListView()
+                ListView(rantsVM: rantsVM)
             }
         }
         .overlay(alignment: .bottomTrailing) {
@@ -33,7 +35,7 @@ struct HomepageView: View {
             .padding()
         }
         .fullScreenCover(isPresented: $addRant, content: {
-            NewRantView()
+            NewRantView(rantsVM: rantsVM)
         })
         .navigationTitle("Rants")
         .navigationBarTitleDisplayMode(.inline)

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var rantsVM = RantsViewModel()
     var body: some View {
         NavigationStack {
-            HomepageView()
+            HomepageView(rantsVM: rantsVM)
+                .onAppear(perform: rantsVM.fetchData)
         }
     }
 }

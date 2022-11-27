@@ -8,38 +8,44 @@
 import SwiftUI
 
 struct GridView: View {
-    let col = [GridItem(.adaptive(minimum: 200))]
+    @ObservedObject var rantsVM: RantsViewModel
+    
+    //    let col = [GridItem(.adaptive(minimum: 400))]
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: col) {
-                ForEach(0..<10) { i in
+        GeometryReader { proxy in
+            ScrollView {
+                ForEach(rantsVM.rants) { rant in
                     NavigationLink {
-                        RantView()
+                        RantView(rant: rant)
                     } label: {
                         VStack(alignment: .leading, spacing: 10){
-                            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat, sem et posuere vestibulum, dui neque hendrerit enim, eget vestibulum felis orci sit amet enim. Sed vestibulum leo ut fermentum convallis. Sed rhoncus ligula ligula, eu mollis tortor.")
+                            Text(rant.rant)
                                 .font(.body)
-                                .frame(height: 100)
+                                .frame(maxHeight: 100)
+                                .frame(width: proxy.size.width * 0.85, alignment: .leading)
                                 .multilineTextAlignment(.leading)
                             
-                            Text("Lorem Ipsum")
-                                .font(.title2.bold())
+                            Text(rant.title)
+                                .font(.title3.bold())
+                                .multilineTextAlignment(.leading)
                             
                             Text(Date().formatted())
                                 .font(.subheadline)
                         }
+                        .frame(width: proxy.size.width * 0.85)
                         .foregroundColor(.black)
                         .padding()
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+//                        .clipShape(RoundedRectangle(cornerRadius: 10))
                         .background {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(.thinMaterial)
                                 .shadow(color: .black, radius: 2, x: 0, y: 0)
                         }
                         .padding(4)
+                        .frame(width: proxy.size.width)
+                        
                     }
                 }
-                
             }
         }
     }
@@ -47,6 +53,6 @@ struct GridView: View {
 
 struct GridView_Previews: PreviewProvider {
     static var previews: some View {
-        GridView()
+        GridView(rantsVM: RantsViewModel())
     }
 }

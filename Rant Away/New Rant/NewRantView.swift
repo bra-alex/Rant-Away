@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NewRantView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var title = ""
-    @State private var rant = ""
+    @ObservedObject var rantsVM: RantsViewModel
+    
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading) {
@@ -21,7 +21,7 @@ struct NewRantView: View {
                         .font(.headline)
                         .padding(.trailing)
                     
-                    TextField("Title", text: $title)
+                    TextField("Title", text: $rantsVM.title)
                     
                 }
                 .padding(.horizontal)
@@ -31,10 +31,10 @@ struct NewRantView: View {
                         .font(.headline)
                         .padding(.vertical)
                     
-                    TextEditor(text: $rant)
+                    TextEditor(text: $rantsVM.rant)
                         .frame(height: 300)
                         .overlay(alignment: .topLeading) {
-                            if rant.isEmpty {
+                            if rantsVM.rant.isEmpty {
                                 Text("Rant")
                                     .foregroundColor(.gray)
                             }
@@ -58,6 +58,7 @@ struct NewRantView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button{
+                        rantsVM.postData()
                         dismiss()
                     } label: {
                         Text("Send")
@@ -72,7 +73,7 @@ struct NewRantView: View {
 struct NewRantView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView{
-            NewRantView()
+            NewRantView(rantsVM: RantsViewModel())
         }
     }
 }

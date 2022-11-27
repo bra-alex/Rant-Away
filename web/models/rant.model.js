@@ -6,14 +6,17 @@ module.exports = class Rant {
         this.rant = rant
     }
 
-    save(){
+    async save(){
         this.id = Math.floor(Math.random() * 1000000).toString()
 
-        rantModel.create(this, err => {
-            if(err){
-                return err
-            }
-        })
+        try {
+            await rantModel.findOneAndUpdate(
+                {id: this.id},
+                this,
+                {upsert: true})
+        } catch (err) {
+            return err
+        }
     }
 
     static async fetchRants(cb){

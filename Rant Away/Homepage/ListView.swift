@@ -8,27 +8,29 @@
 import SwiftUI
 
 struct ListView: View {
+    @ObservedObject var rantsVM: RantsViewModel
+    
     var body: some View {
         List {
-            ForEach(0..<10) { i in
+            ForEach(rantsVM.rants) { rant in
                 NavigationLink {
-                    RantView()
+                    RantView(rant: rant)
                 } label: {
                     VStack(alignment: .leading, spacing: 10){
                         HStack{
-                            Text("Lorem Ipsum")
+                            Text(rant.title)
                                 .font(.title2.bold())
                             
                             Spacer()
                             
-                            Text(Date().formatted())
-                                .font(.subheadline)
-                                .padding(.trailing)
+//                            Text(Date().formatted())
+//                                .font(.subheadline)
+//                                .padding(.trailing)
                         }
                         
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque placerat, sem et posuere vestibulum, dui neque hendrerit enim, eget vestibulum felis orci sit amet enim. Sed vestibulum leo ut fermentum convallis. Sed rhoncus ligula ligula, eu mollis tortor.")
+                        Text(rant.rant)
                             .font(.body)
-                            .frame(height: 100)
+                            .frame(maxHeight: 100)
                     }
                 }
             }
@@ -39,6 +41,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(rantsVM: RantsViewModel())
     }
 }
